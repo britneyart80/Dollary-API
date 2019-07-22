@@ -4,11 +4,17 @@ class UsersController < OpenReadController
   before_action :set_spending, only: [:show, :update, :destroy]
   skip_before_action :authenticate, only: %i[signup signin]
 
-  # GET /spendings
+  # GET /users
   def index
     @users = User.all
 
     render json: @users
+  end
+
+  # GET /users/1
+  # GET /users/1.json
+  def show
+    render json: User.find(params[:id])
   end
 
   # POST /categories

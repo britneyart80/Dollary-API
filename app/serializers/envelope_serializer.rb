@@ -1,5 +1,5 @@
 class EnvelopeSerializer < ActiveModel::Serializer
-  attributes :id, :budget, :budget_left, :month, :spendings
+  attributes :id, :budget, :budget_left, :month, :year, :spendings
   def budget_left
     result = 0
     object.spendings.each { |spending|
