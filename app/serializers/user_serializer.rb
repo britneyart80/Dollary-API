@@ -3,4 +3,5 @@
 class UserSerializer < ActiveModel::Serializer
   attributes :id, :email
   has_many :envelopes
+  has_many :spendings, through: :envelopes
 end

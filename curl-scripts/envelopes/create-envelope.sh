@@ -7,8 +7,8 @@ curl "http://localhost:4741/envelopes" \
   --data '{
     "envelope": {
       "budget": "'"${BUDGET}"'",
-      "budget_left": "'"${BUDGET_LEFT}"'",
-      "month": "'"${MONTH}"'"
+      "month": "'"${MONTH}"'",
+      "user_id": "'"${ID}"'"
     }
   }'
 

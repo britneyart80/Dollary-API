@@ -2,6 +2,7 @@
 
 class User < ApplicationRecord
   include Authentication
-  has_many :spendings, through: :envelopes
+
   has_many :envelopes
+  has_many :spendings, through: :envelopes
 end
