@@ -1,7 +1,26 @@
 # frozen_string_literal: true
 
-class UsersController < ProtectedController
+class UsersController < OpenReadController
+  before_action :set_spending, only: [:show, :update, :destroy]
   skip_before_action :authenticate, only: %i[signup signin]
+
+  # GET /spendings
+  def index
+    @users = User.all
+
+    render json: @users
+  end
+
+  # POST /categories
+  def create
+    @user = User.new
+
+    if @user.save
+      render json: @user, status: :created, location: @category
+    else
+      render json: @user.errors, status: :unprocessable_entity
+    end
+  end
 
   # POST '/sign-up'
   def signup
@@ -47,6 +66,11 @@ class UsersController < ProtectedController
   end
 
   private
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_spending
+    @user = User.find(params[:id])
+  end
 
   def user_creds
     params.require(:credentials)
