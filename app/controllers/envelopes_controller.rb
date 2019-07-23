@@ -46,6 +46,6 @@ class EnvelopesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def envelope_params
-      params.require(:envelope).permit(:budget, :month, :user_id)
+      params.require(:envelope).permit(:budget, :month, :year, :user_id)
     end
 end
