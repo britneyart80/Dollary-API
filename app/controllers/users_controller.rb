@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class UsersController < OpenReadController
+class UsersController < ProtectedController
   before_action :set_spending, only: [:show, :update, :destroy]
   skip_before_action :authenticate, only: %i[signup signin]
 
