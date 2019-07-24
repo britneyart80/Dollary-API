@@ -6,7 +6,7 @@ curl "http://localhost:4741/spendings" \
   --header "Content-Type: application/json" \
   --data '{
     "spending": {
-      "item": "'"${item}"'",
+      "item": "'"${ITEM}"'",
       "cost": "'"${COST}"'",
       "date": "'"${DATE}"'",
       "envelope_id": "'"${ENVELOPE}"'",

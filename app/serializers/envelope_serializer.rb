@@ -7,7 +7,10 @@ class EnvelopeSerializer < ActiveModel::Serializer
     else
       result = 0
       object.spendings.each { |spending|
+        if spending.cost == nil
+        else
         result += spending.cost
+        end
       }
       object.budget - result
     end

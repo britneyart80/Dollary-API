@@ -1,9 +1,9 @@
-class EnvelopesController < ApplicationController
+class EnvelopesController < ProtectedController
   before_action :set_envelope, only: [:show, :update, :destroy]
 
   # GET /envelopes
   def index
-    @envelopes = Envelope.all
+    @envelopes = current_user.envelopes
 
     render json: @envelopes
   end
@@ -15,7 +15,7 @@ class EnvelopesController < ApplicationController
 
   # POST /envelopes
   def create
-    @envelope = Envelope.new(envelope_params)
+    @envelope = current_user.envelopes.build(envelope_params)
 
     if @envelope.save
       render json: @envelope, status: :created, location: @envelope
@@ -41,11 +41,11 @@ class EnvelopesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_envelope
-      @envelope = Envelope.find(params[:id])
+      @envelope = current_user.envelopes.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
     def envelope_params
-      params.require(:envelope).permit(:budget, :month, :year, :user_id)
+      params.require(:envelope).permit(:budget, :month, :year)
     end
 end
