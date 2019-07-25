@@ -2,7 +2,7 @@
 
 ### Technologies used
 <li>Ruby on Rails</li>
-<li>SQL</li>
+<li>PostgreSQL</li>
 <li>Bootstrap</li>
 
 
