@@ -16,18 +16,18 @@ ActiveRecord::Schema.define(version: 2019_07_22_195024) do
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "envelopes", force: :cascade do |t|
-    t.integer "budget"
+    t.integer "budget", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
-    t.integer "year", limit: 2
-    t.integer "month", limit: 2
+    t.integer "year", limit: 2, null: false
+    t.integer "month", limit: 2, null: false
     t.index ["user_id"], name: "index_envelopes_on_user_id"
   end
 
@@ -40,11 +40,11 @@ ActiveRecord::Schema.define(version: 2019_07_22_195024) do
   end
 
   create_table "spendings", force: :cascade do |t|
-    t.string "item"
-    t.integer "cost"
-    t.date "date"
+    t.string "item", null: false
+    t.integer "cost", null: false
+    t.date "date", null: false
     t.bigint "envelope_id"
-    t.bigint "category_id"
+    t.bigint "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_spendings_on_category_id"
