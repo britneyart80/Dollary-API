@@ -1,10 +1,10 @@
+<a href="https://github.com/britneyart80/Dollary">Front-end Repo</a>
+
 # Dollary API
 
 ### Technologies used
 <li>Ruby on Rails</li>
 <li>PostgreSQL</li>
-<li>Bootstrap</li>
-
 
 ## Introduction
 
